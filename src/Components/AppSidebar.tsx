@@ -7,14 +7,9 @@ import {
   SidebarMenuItem,
   Sidebar,
 } from './ui/sidebar';
-import {
-  BarChart3,
-  DatabaseIcon,
-  DollarSign,
-  Link,
-  MessageSquare,
-  Users,
-} from 'lucide-react';
+import { BarChart3, DatabaseIcon, MessageSquare } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const recentChats = [
   'Daily Active Users',
@@ -54,7 +49,7 @@ const AppSidebar = () => {
           <SidebarMenu>
             {recentChats.map((chat, index) => (
               <SidebarMenuItem key={index}>
-                <SidebarMenuButton className="w-full justify-start text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                <SidebarMenuButton className="w-full justify-start text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer">
                   <MessageSquare className="h-4 w-4" />
                   <span className="truncate">{chat}</span>
                 </SidebarMenuButton>
@@ -66,41 +61,14 @@ const AppSidebar = () => {
             <h3 className="text-sm font-medium text-gray-500 mb-3">
               Quick Actions
             </h3>
-            {/* <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  className="text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                >
-                  <Link href="/connect-database">
-                    <DatabaseIcon className="h-4 w-4" />
-                    <span>Connect Database</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  className="text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                >
-                  <Link href="/saved/users">
-                    <Users className="h-4 w-4" />
-                    <span>View Users</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  className="text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                >
-                  <Link href="/saved/sales">
-                    <DollarSign className="h-4 w-4" />
-                    <span>View Sales</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu> */}
+            <div className="space-y-2">
+              <Link href="/connect-database">
+                <Button className="w-full flex items-center gap-x-2 justify-start text-gray-700 bg-transparent border-none shadow-none hover:bg-gray-100 hover:text-gray-900 cursor-pointer">
+                  <DatabaseIcon className="h-4 w-4" />
+                  <span>Connect Database</span>
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </SidebarContent>
