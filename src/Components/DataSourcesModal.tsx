@@ -9,15 +9,15 @@ import {
   CheckIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/Components/ui/checkbox';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/Components/ui/dialog';
-import { ScrollArea } from '@/Components/ui/scroll-area';
-import { Badge } from '@/Components/ui/badge';
+} from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Badge } from '@/components/ui/badge';
 
 interface DataSourceTable {
   name: string;

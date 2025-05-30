@@ -1,12 +1,12 @@
 'use client';
 
 import { LucideDatabase, LucideTable } from 'lucide-react';
-import { Badge } from '@/Components/ui/badge';
+import { Badge } from '@/components/ui/badge';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/Components/ui/popover';
+} from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 
 interface Table {
