@@ -117,7 +117,7 @@ export default function DataSourcesModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-lg bg-white border-gray-200 max-h-[80vh] flex flex-col">
+      <DialogContent className="sm:max-w-lg bg-white border-gray-200 max-h-[80vh] overflow-y-auto flex flex-col">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-gray-900">
             <DatabaseIcon className="h-5 w-5 text-green-600" />
