@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import AppSidebar from '@/Components/AppSidebar';
-import DataSourcesIndicator from '@/Components/DataSourcesIndicator';
-import DataSourcesModal from '@/Components/DataSourcesModal';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import AppSidebar from "@/Components/AppSidebar";
+import DataSourcesIndicator from "@/Components/DataSourcesIndicator";
+import DataSourcesModal from "@/Components/DataSourcesModal";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/Components/ui/sidebar';
-import { DatabaseIcon, Send } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
+} from "@/Components/ui/sidebar";
+import { DatabaseIcon, Send } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 interface Table {
   name: string;
@@ -29,47 +29,47 @@ interface DataSource {
 // Mock database structure
 const initialDataSources: DataSource[] = [
   {
-    name: 'production_db',
+    name: "production_db",
     selected: true,
     expanded: true,
     tables: [
-      { name: 'users', selected: true },
-      { name: 'orders', selected: true },
-      { name: 'products', selected: false },
-      { name: 'payments', selected: true },
+      { name: "users", selected: true },
+      { name: "orders", selected: true },
+      { name: "products", selected: false },
+      { name: "payments", selected: true },
     ],
   },
   {
-    name: 'analytics_db',
+    name: "analytics_db",
     selected: false,
     expanded: false,
     tables: [
-      { name: 'page_views', selected: false },
-      { name: 'user_sessions', selected: false },
-      { name: 'conversion_events', selected: false },
+      { name: "page_views", selected: false },
+      { name: "user_sessions", selected: false },
+      { name: "conversion_events", selected: false },
     ],
   },
   {
-    name: 'warehouse_db',
+    name: "warehouse_db",
     selected: false,
     expanded: false,
     tables: [
-      { name: 'inventory', selected: false },
-      { name: 'suppliers', selected: false },
-      { name: 'shipments', selected: false },
+      { name: "inventory", selected: false },
+      { name: "suppliers", selected: false },
+      { name: "shipments", selected: false },
     ],
   },
 ];
 
 export default function Home() {
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>("");
   const [showDataSourcesModal, setShowDataSourcesModal] = useState(false);
   const [dataSources, setDataSources] =
     useState<DataSource[]>(initialDataSources);
 
   const handleSaveDataSources = (newDataSources: DataSource[]) => {
     setDataSources(newDataSources);
-    console.log('Updated data sources:', newDataSources);
+    console.log("Updated data sources:", newDataSources);
   };
 
   return (

@@ -1,42 +1,42 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Database, ArrowLeft, CheckCircle, AlertCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/Components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/Components/ui/card';
+import { useState } from "react";
+import { Database, ArrowLeft, CheckCircle, AlertCircle } from "lucide-react";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/Components/ui/select';
-import { Alert, AlertDescription } from '@/Components/ui/alert';
-import Link from 'next/link';
+} from "@/Components/ui/select";
+import { Alert, AlertDescription } from "@/Components/ui/alert";
+import Link from "next/link";
 
 export default function ConnectDatabasePage() {
-  const [dbType, setDbType] = useState('');
-  const [host, setHost] = useState('');
-  const [port, setPort] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [dbType, setDbType] = useState("");
+  const [host, setHost] = useState("");
+  const [port, setPort] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [connectionStatus, setConnectionStatus] = useState<
-    'idle' | 'checking' | 'success' | 'error'
-  >('idle');
+    "idle" | "checking" | "success" | "error"
+  >("idle");
 
   const handleCheckConnection = async () => {
-    setConnectionStatus('checking');
+    setConnectionStatus("checking");
     // Simulate connection check
     setTimeout(() => {
-      setConnectionStatus(Math.random() > 0.3 ? 'success' : 'error');
+      setConnectionStatus(Math.random() > 0.3 ? "success" : "error");
     }, 2000);
   };
 
   const handleSaveConnection = () => {
     // Handle save logic here
-    console.log('Saving connection...');
+    console.log("Saving connection...");
   };
 
   return (
@@ -163,7 +163,7 @@ export default function ConnectDatabasePage() {
             </div>
 
             {/* Connection Status */}
-            {connectionStatus === 'success' && (
+            {connectionStatus === "success" && (
               <Alert className="border-green-200 bg-green-50">
                 <CheckCircle className="h-4 w-4 text-green-600" />
                 <AlertDescription className="text-green-800">
@@ -172,7 +172,7 @@ export default function ConnectDatabasePage() {
               </Alert>
             )}
 
-            {connectionStatus === 'error' && (
+            {connectionStatus === "error" && (
               <Alert className="border-red-200 bg-red-50">
                 <AlertCircle className="h-4 w-4 text-red-600" />
                 <AlertDescription className="text-red-800">
@@ -188,20 +188,20 @@ export default function ConnectDatabasePage() {
                 variant="outline"
                 onClick={handleCheckConnection}
                 disabled={
-                  connectionStatus === 'checking' ||
+                  connectionStatus === "checking" ||
                   !dbType ||
                   !host ||
                   !username
                 }
                 className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
               >
-                {connectionStatus === 'checking'
-                  ? 'Checking...'
-                  : 'Check Connection'}
+                {connectionStatus === "checking"
+                  ? "Checking..."
+                  : "Check Connection"}
               </Button>
               <Button
                 onClick={handleSaveConnection}
-                disabled={connectionStatus !== 'success'}
+                disabled={connectionStatus !== "success"}
                 className="flex-1 bg-green-600 hover:bg-green-700"
               >
                 Save Connection

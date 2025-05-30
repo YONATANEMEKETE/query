@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   SidebarContent,
   SidebarHeader,
@@ -6,19 +6,19 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   Sidebar,
-} from './ui/sidebar';
-import { BarChart3, DatabaseIcon, MessageSquare } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+} from "./ui/sidebar";
+import { BarChart3, DatabaseIcon, MessageSquare } from "lucide-react";
+import { Button } from "@/Components/ui/button";
+import Link from "next/link";
 
 const recentChats = [
-  'Daily Active Users',
-  'Revenue Breakdown',
-  'Top Customers',
-  'Conversion Rates',
-  'Monthly Growth',
-  'User Retention',
-  'Product Analytics',
+  "Daily Active Users",
+  "Revenue Breakdown",
+  "Top Customers",
+  "Conversion Rates",
+  "Monthly Growth",
+  "User Retention",
+  "Product Analytics",
 ];
 
 const AppSidebar = () => {

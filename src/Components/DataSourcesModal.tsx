@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import {
   DatabaseIcon,
   TableIcon,
   ChevronDownIcon,
   ChevronRightIcon,
   CheckIcon,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/Components/ui/checkbox';
+} from "lucide-react";
+import { Button } from "@/Components/ui/button";
+import { Checkbox } from "@/Components/ui/checkbox";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/Components/ui/dialog';
-import { ScrollArea } from '@/Components/ui/scroll-area';
-import { Badge } from '@/Components/ui/badge';
+} from "@/Components/ui/dialog";
+import { ScrollArea } from "@/Components/ui/scroll-area";
+import { Badge } from "@/Components/ui/badge";
 
 interface DataSourceTable {
   name: string;

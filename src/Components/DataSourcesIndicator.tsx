@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { LucideDatabase, LucideTable } from 'lucide-react';
-import { Badge } from '@/Components/ui/badge';
+import { LucideDatabase, LucideTable } from "lucide-react";
+import { Badge } from "@/Components/ui/badge";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/Components/ui/popover';
-import { Button } from '@/components/ui/button';
+} from "@/Components/ui/popover";
+import { Button } from "@/Components/ui/button";
 
 interface Table {
   name: string;
@@ -60,7 +60,7 @@ export default function DataSourcesIndicator({
     <div className="flex items-center gap-2 px-3 py-2 bg-green-50 border border-green-200 rounded-lg">
       <LucideDatabase className="h-4 w-4 text-green-600" />
       <span className="text-sm text-green-800">
-        Query has access to {selectedDatabases.length} database(s) and{' '}
+        Query has access to {selectedDatabases.length} database(s) and{" "}
         {selectedTables.length} table(s)
       </span>
 
