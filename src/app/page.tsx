@@ -78,6 +78,7 @@ interface Message {
   content: string;
   timestamp: Date;
   responseType?: 'table' | 'chart' | 'card';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
 }
 
