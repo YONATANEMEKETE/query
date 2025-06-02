@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Card, CardContent } from "@/Components/ui/card";
-import { TrendingUp, TrendingDown } from "lucide-react";
+import { Card, CardContent } from '@/components/ui/card';
+import { TrendingUp, TrendingDown } from 'lucide-react';
 
 interface StatsCardsProps {
   data: Record<string, string | number>;
@@ -19,16 +19,16 @@ export default function StatsCards({ data, className }: StatsCardsProps) {
 
   const formatLabel = (key: string) => {
     return key
-      .replace(/([A-Z])/g, " $1")
+      .replace(/([A-Z])/g, ' $1')
       .replace(/^./, (str) => str.toUpperCase())
       .trim();
   };
 
   const getTrendIcon = (value: string) => {
-    if (typeof value === "string" && value.includes("%")) {
-      if (value.startsWith("+")) {
+    if (typeof value === 'string' && value.includes('%')) {
+      if (value.startsWith('+')) {
         return <TrendingUp className="h-4 w-4 text-green-600" />;
-      } else if (value.startsWith("-")) {
+      } else if (value.startsWith('-')) {
         return <TrendingDown className="h-4 w-4 text-red-600" />;
       }
     }
@@ -36,14 +36,14 @@ export default function StatsCards({ data, className }: StatsCardsProps) {
   };
 
   const getValueColor = (value: string) => {
-    if (typeof value === "string" && value.includes("%")) {
-      if (value.startsWith("+")) {
-        return "text-green-600";
-      } else if (value.startsWith("-")) {
-        return "text-red-600";
+    if (typeof value === 'string' && value.includes('%')) {
+      if (value.startsWith('+')) {
+        return 'text-green-600';
+      } else if (value.startsWith('-')) {
+        return 'text-red-600';
       }
     }
-    return "";
+    return '';
   };
 
   return (
