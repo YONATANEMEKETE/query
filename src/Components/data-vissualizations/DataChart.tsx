@@ -22,10 +22,10 @@ interface DataChartProps {
 const chartColors = {
   primary: 'hsl(var(--primary))',
   secondary: 'hsl(var(--muted-foreground))',
-  accent: 'hsl(var(--accent-foreground))',
+  accent: 'hsl(var(--accent))',
   gradient: {
-    from: '#3b82f6',
-    to: '#1d4ed8',
+    from: '#19874d',
+    to: '#0f5c34',
   },
 };
 
@@ -146,7 +146,7 @@ export default function DataChart({
                   fill: 'hsl(var(--muted-foreground))',
                   fontSize: 12,
                 }}
-                tickFormatter={(value: any) => {
+                tickFormatter={(value) => {
                   if (value >= 1000) {
                     return `${(value / 1000).toFixed(0)}k`;
                   }

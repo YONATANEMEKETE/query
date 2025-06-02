@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/select';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ConnectDatabasePage() {
   const [dbType, setDbType] = useState('');
@@ -76,27 +77,51 @@ export default function ConnectDatabasePage() {
                 Database Type
               </Label>
               <Select value={dbType} onValueChange={setDbType}>
-                <SelectTrigger className="bg-white border-gray-300 text-gray-900">
+                <SelectTrigger className="bg-white border-gray-300 text-gray-900 w-full">
                   <SelectValue placeholder="Select database type" />
                 </SelectTrigger>
-                <SelectContent className="bg-white border-gray-200">
+                <SelectContent className="bg-white border-gray-200 min-w-[300px]">
                   <SelectItem
                     value="postgresql"
                     className="text-gray-900 hover:bg-gray-50"
                   >
-                    PostgreSQL
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src="/icons/postgres.svg"
+                        alt="PostgreSQL"
+                        width={20}
+                        height={20}
+                      />
+                      <span>PostgreSQL</span>
+                    </div>
                   </SelectItem>
                   <SelectItem
                     value="mysql"
                     className="text-gray-900 hover:bg-gray-50"
                   >
-                    MySQL
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src="/icons/mysql.svg"
+                        alt="MySQL"
+                        width={24}
+                        height={24}
+                      />
+                      <span>MySQL</span>
+                    </div>
                   </SelectItem>
                   <SelectItem
                     value="mongodb"
                     className="text-gray-900 hover:bg-gray-50"
                   >
-                    MongoDB
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src="/icons/mongo.svg"
+                        alt="MongoDB"
+                        width={20}
+                        height={20}
+                      />
+                      <span>MongoDB</span>
+                    </div>
                   </SelectItem>
                 </SelectContent>
               </Select>
@@ -193,7 +218,7 @@ export default function ConnectDatabasePage() {
                   !host ||
                   !username
                 }
-                className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
+                className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer"
               >
                 {connectionStatus === 'checking'
                   ? 'Checking...'
@@ -202,7 +227,7 @@ export default function ConnectDatabasePage() {
               <Button
                 onClick={handleSaveConnection}
                 disabled={connectionStatus !== 'success'}
-                className="flex-1 bg-green-600 hover:bg-green-700"
+                className="flex-1 bg-[#19874d] hover:bg-[#19874d]/80 cursor-pointer"
               >
                 Save Connection
               </Button>

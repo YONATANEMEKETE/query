@@ -38,7 +38,7 @@ const AppSidebar = () => {
       <SidebarHeader className="border-b border-gray-200">
         <div className="flex items-center gap-2 px-4 py-2">
           <BarChart3 className="h-6 w-6 text-green-600" />
-          <span className="text-xl font-bold text-gray-900">Que.ry</span>
+          <span className="text-xl font-bold text-gray-900">Query</span>
         </div>
       </SidebarHeader>
       <SidebarContent className="bg-gray-50">

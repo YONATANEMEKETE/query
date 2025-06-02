@@ -126,7 +126,7 @@ export default function SaveQueryModal({
           <Button
             onClick={handleSave}
             disabled={!title.trim() || !pagePath.trim()}
-            className="flex-1 bg-green-600 hover:bg-green-700 cursor-pointer"
+            className="flex-1 bg-[#19874d] hover:bg-[#19874d]/80 cursor-pointer"
           >
             Save
           </Button>

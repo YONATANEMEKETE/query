@@ -89,6 +89,8 @@ const dummyTableData = [
     email: 'john@example.com',
     role: 'Admin',
     status: 'Active',
+    joinDate: '2023-01-15',
+    lastLogin: '2024-01-20',
   },
   {
     id: 2,
@@ -96,6 +98,8 @@ const dummyTableData = [
     email: 'jane@example.com',
     role: 'User',
     status: 'Active',
+    joinDate: '2023-03-22',
+    lastLogin: '2024-01-19',
   },
   {
     id: 3,
@@ -103,6 +107,8 @@ const dummyTableData = [
     email: 'bob@example.com',
     role: 'User',
     status: 'Inactive',
+    joinDate: '2023-02-10',
+    lastLogin: '2023-12-15',
   },
   {
     id: 4,
@@ -110,6 +116,62 @@ const dummyTableData = [
     email: 'alice@example.com',
     role: 'Moderator',
     status: 'Active',
+    joinDate: '2023-04-05',
+    lastLogin: '2024-01-18',
+  },
+  {
+    id: 5,
+    name: 'Charlie Wilson',
+    email: 'charlie@example.com',
+    role: 'User',
+    status: 'Active',
+    joinDate: '2023-05-12',
+    lastLogin: '2024-01-17',
+  },
+  {
+    id: 6,
+    name: 'Diana Prince',
+    email: 'diana@example.com',
+    role: 'Admin',
+    status: 'Active',
+    joinDate: '2023-01-08',
+    lastLogin: '2024-01-20',
+  },
+  {
+    id: 7,
+    name: 'Edward Norton',
+    email: 'edward@example.com',
+    role: 'User',
+    status: 'Inactive',
+    joinDate: '2023-06-20',
+    lastLogin: '2023-11-30',
+  },
+  {
+    id: 8,
+    name: 'Fiona Green',
+    email: 'fiona@example.com',
+    role: 'Moderator',
+    status: 'Active',
+    joinDate: '2023-07-14',
+    lastLogin: '2024-01-16',
+  },
+  {
+    id: 9,
+    name: 'George Miller',
+    email: 'george@example.com',
+    role: 'User',
+    status: 'Active',
+    joinDate: '2023-08-03',
+    lastLogin: '2024-01-15',
+  },
+  {
+    id: 10,
+    name: 'Helen Davis',
+    email: 'helen@example.com',
+    role: 'User',
+    status: 'Inactive',
+    joinDate: '2023-09-18',
+    lastLogin: '2023-12-20',
   },
 ];
 
@@ -269,7 +331,7 @@ export default function Home() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white cursor-pointer"
+                    className="border-green-600 text-green-600 hover:bg-[#19874d] hover:text-white cursor-pointer"
                   >
                     <DatabaseIcon className="h-4 w-4 mr-1" />
                     Connect Database
@@ -297,7 +359,7 @@ export default function Home() {
                   <div
                     className={`max-w-4xl w-full ${
                       message.type === 'user'
-                        ? 'bg-gradient-to-br from-green-800 to-green-500 text-white rounded-lg p-4'
+                        ? 'bg-[#19874d] text-white rounded-lg p-4'
                         : 'space-y-4'
                     }`}
                   >
@@ -368,7 +430,7 @@ export default function Home() {
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim() || isLoading}
                   size="icon"
-                  className="bg-green-600 hover:bg-green-700 cursor-pointer"
+                  className="bg-[#19874d] hover:bg-[#19874d]/80 cursor-pointer"
                 >
                   <Send className="h-4 w-4" />
                 </Button>

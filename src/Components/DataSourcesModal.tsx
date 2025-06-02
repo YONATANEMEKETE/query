@@ -208,7 +208,7 @@ export default function DataSourcesModal({
           </Button>
           <Button
             onClick={handleSave}
-            className="flex-1 bg-green-600 hover:bg-green-700 cursor-pointer"
+            className="flex-1 bg-[#19874d] hover:bg-[#19874d]/80 cursor-pointer"
           >
             <CheckIcon className="h-4 w-4 mr-1" />
             Apply Selection
