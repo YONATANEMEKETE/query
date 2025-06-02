@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3030:3000"
+    volumes:
+      - .:/app           # Sync current directory
+      - /app/node_modules # Preserve container modules
+    environment:
+      - HOST=0.0.0.0     # Allow external connections
+      - CHOKIDAR_USEPOLLING=true # Enable file watching
