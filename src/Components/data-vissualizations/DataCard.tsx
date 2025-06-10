@@ -47,11 +47,12 @@ export default function StatsCards({ data, className }: StatsCardsProps) {
   };
 
   return (
-    <div
-      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ${className}`}
-    >
+    <div className={`flex gap-4 items-center flex-wrap ${className}`}>
       {Object.entries(data).map(([key, value]) => (
-        <Card key={key} className="hover:shadow-md transition-shadow">
+        <Card
+          key={key}
+          className="hover:shadow-md transition-shadow shrink-0 w-[160px]"
+        >
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div className="flex-1">

@@ -7,7 +7,7 @@ import {
   SidebarMenuItem,
   Sidebar,
 } from './ui/sidebar';
-import { BarChart3, DatabaseIcon, MessageSquare } from 'lucide-react';
+import { BarChart3, DatabaseIcon, MessageSquare, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -66,6 +66,12 @@ const AppSidebar = () => {
                 <Button className="w-full flex items-center gap-x-2 justify-start text-gray-700 bg-transparent border-none shadow-none hover:bg-gray-100 hover:text-gray-900 cursor-pointer">
                   <DatabaseIcon className="h-4 w-4" />
                   <span>Connect Database</span>
+                </Button>
+              </Link>
+              <Link href="/sample">
+                <Button className="w-full flex items-center gap-x-2 justify-start text-gray-700 bg-transparent border-none shadow-none hover:bg-gray-100 hover:text-gray-900 cursor-pointer">
+                  <Users className="h-4 w-4" />
+                  <span>Sample</span>
                 </Button>
               </Link>
             </div>

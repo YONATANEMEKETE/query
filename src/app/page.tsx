@@ -82,7 +82,7 @@ interface Message {
   data?: any;
 }
 
-const dummyTableData = [
+export const dummyTableData = [
   {
     id: 1,
     name: 'John Doe',
@@ -175,7 +175,7 @@ const dummyTableData = [
   },
 ];
 
-const dummyChartData = [
+export const dummyChartData = [
   { name: 'Jan', revenue: 4000, users: 240 },
   { name: 'Feb', revenue: 3000, users: 139 },
   { name: 'Mar', revenue: 2000, users: 980 },
