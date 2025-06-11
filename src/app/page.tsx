@@ -194,14 +194,31 @@ export default function Home() {
       timestamp: new Date(),
     },
   ]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [inputValue, setInputValue] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingAuth, setIsLoadingAuth] = useState(false);
   const [saveModalOpen, setSaveModalOpen] = useState(false);
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [showDataSourcesModal, setShowDataSourcesModal] = useState(false);
   const [dataSources, setDataSources] =
     useState<DataSource[]>(initialDataSources);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const authStatus = localStorage.getItem('isAuthenticated');
+      if (authStatus === 'true') {
+        setIsAuthenticated(true);
+      } else {
+        // Redirect to signin page
+        window.location.href = '/auth/signin';
+      }
+      setIsLoadingAuth(false);
+    };
+
+    checkAuth();
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -311,6 +328,21 @@ export default function Home() {
         return null;
     }
   };
+
+  if (isLoadingAuth) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <BarChart3 className="h-6 w-6 text-green-600" />
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="bg-white min-h-screen">
