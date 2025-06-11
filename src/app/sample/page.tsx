@@ -12,10 +12,11 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
-import { DatabaseIcon } from 'lucide-react';
+import { DatabaseIcon, GripHorizontal } from 'lucide-react';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { dummyChartData, dummyTableData } from '../page';
+import { createSwapy, Swapy } from 'swapy';
 
 interface Table {
   name: string;
@@ -68,6 +69,25 @@ const SampleDetailPage = () => {
   const [showDataSourcesModal, setShowDataSourcesModal] = useState(false);
   const [dataSources, setDataSources] =
     useState<DataSource[]>(initialDataSources);
+  const swapy = useRef<Swapy | null>(null);
+  const container = useRef(null);
+
+  useEffect(() => {
+    // If container element is loaded
+    if (container.current) {
+      swapy.current = createSwapy(container.current);
+
+      // Your event listeners
+      swapy.current.onSwap((event) => {
+        console.log('swap', event);
+      });
+    }
+
+    return () => {
+      // Destroy the swapy instance on component destroy
+      swapy.current?.destroy();
+    };
+  }, []);
 
   const handleSaveDataSources = (newDataSources: DataSource[]) => {
     setDataSources(newDataSources);
@@ -109,33 +129,54 @@ const SampleDetailPage = () => {
               />
             </div>
             {/* Messages */}
-            <div className="px-10 py-10 flex flex-col gap-y-12">
-              <div className="size-full flex gap-x-4 ">
-                <div className="basis-1/3">
-                  <div className="">
-                    <StatsCards
-                      data={{
-                        totalRevenue: '$45,230',
-                        totalUsers: 1247,
-                        activeUsers: 892,
-                        conversionRate: '3.2%',
-                      }}
-                    />
+            <div
+              ref={container}
+              className="px-10 py-10 flex flex-col gap-y-12 swapy-container"
+            >
+              {/* card */}
+              <div data-swapy-slot="card" className="">
+                <div
+                  data-swapy-item="card"
+                  className="p-6 pt-10 cursor-grabbing  border border-green-200 border-dashed rounded-lg bg-white relative"
+                >
+                  <div data-swapy-handle className="absolute top-0 left-0 p-2">
+                    <GripHorizontal className="size-6 cursor-grabbing text-green-600" />
                   </div>
-                </div>
-                {/* Chart */}
-                <div className="basis-2/3">
-                  <div>
-                    <DataChart
-                      data={dummyChartData}
-                      title="Revenue & User Analytics"
-                      description="Monthly performance metrics over the last 6 months"
-                    />
-                  </div>
+                  <StatsCards
+                    data={{
+                      totalRevenue: '$45,230',
+                      totalUsers: 1247,
+                      activeUsers: 892,
+                      conversionRate: '3.2%',
+                    }}
+                  />
                 </div>
               </div>
-              <div className="basis-full">
-                <div>
+              {/* Chart */}
+              <div data-swapy-slot="chart" className="">
+                <div
+                  data-swapy-item="chart"
+                  className="p-6 pt-10 cursor-grabbing border border-green-200 border-dashed rounded-lg bg-white relative"
+                >
+                  <div data-swapy-handle className="absolute top-0 left-0 p-2">
+                    <GripHorizontal className="size-6 cursor-grabbing text-green-600" />
+                  </div>
+                  <DataChart
+                    data={dummyChartData}
+                    title="Revenue & User Analytics"
+                    description="Monthly performance metrics over the last 6 months"
+                  />
+                </div>
+              </div>
+              {/* table */}
+              <div data-swapy-slot="table" className="">
+                <div
+                  data-swapy-item="table"
+                  className="p-6 pt-10 cursor-grabbing border border-green-200 border-dashed rounded-lg bg-white relative"
+                >
+                  <div data-swapy-handle className="absolute top-0 left-0 p-2">
+                    <GripHorizontal className="size-6 cursor-grabbing text-green-600" />
+                  </div>
                   <DataTable data={dummyTableData} />
                 </div>
               </div>
