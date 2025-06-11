@@ -15,7 +15,6 @@ import {
 import { DatabaseIcon, GripHorizontal } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import { dummyChartData, dummyTableData } from '../page';
 import { createSwapy, Swapy } from 'swapy';
 
 interface Table {
@@ -29,6 +28,108 @@ interface DataSource {
   expanded: boolean;
   tables: Table[];
 }
+
+const dummyTableData = [
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@example.com',
+    role: 'Admin',
+    status: 'Active',
+    joinDate: '2023-01-15',
+    lastLogin: '2024-01-20',
+  },
+  {
+    id: 2,
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    role: 'User',
+    status: 'Active',
+    joinDate: '2023-03-22',
+    lastLogin: '2024-01-19',
+  },
+  {
+    id: 3,
+    name: 'Bob Johnson',
+    email: 'bob@example.com',
+    role: 'User',
+    status: 'Inactive',
+    joinDate: '2023-02-10',
+    lastLogin: '2023-12-15',
+  },
+  {
+    id: 4,
+    name: 'Alice Brown',
+    email: 'alice@example.com',
+    role: 'Moderator',
+    status: 'Active',
+    joinDate: '2023-04-05',
+    lastLogin: '2024-01-18',
+  },
+  {
+    id: 5,
+    name: 'Charlie Wilson',
+    email: 'charlie@example.com',
+    role: 'User',
+    status: 'Active',
+    joinDate: '2023-05-12',
+    lastLogin: '2024-01-17',
+  },
+  {
+    id: 6,
+    name: 'Diana Prince',
+    email: 'diana@example.com',
+    role: 'Admin',
+    status: 'Active',
+    joinDate: '2023-01-08',
+    lastLogin: '2024-01-20',
+  },
+  {
+    id: 7,
+    name: 'Edward Norton',
+    email: 'edward@example.com',
+    role: 'User',
+    status: 'Inactive',
+    joinDate: '2023-06-20',
+    lastLogin: '2023-11-30',
+  },
+  {
+    id: 8,
+    name: 'Fiona Green',
+    email: 'fiona@example.com',
+    role: 'Moderator',
+    status: 'Active',
+    joinDate: '2023-07-14',
+    lastLogin: '2024-01-16',
+  },
+  {
+    id: 9,
+    name: 'George Miller',
+    email: 'george@example.com',
+    role: 'User',
+    status: 'Active',
+    joinDate: '2023-08-03',
+    lastLogin: '2024-01-15',
+  },
+  {
+    id: 10,
+    name: 'Helen Davis',
+    email: 'helen@example.com',
+    role: 'User',
+    status: 'Inactive',
+    joinDate: '2023-09-18',
+    lastLogin: '2023-12-20',
+  },
+];
+
+const dummyChartData = [
+  { name: 'Jan', revenue: 4000, users: 240 },
+  { name: 'Feb', revenue: 3000, users: 139 },
+  { name: 'Mar', revenue: 2000, users: 980 },
+  { name: 'Apr', revenue: 2780, users: 390 },
+  { name: 'May', revenue: 1890, users: 480 },
+  { name: 'Jun', revenue: 2390, users: 380 },
+];
 
 // Mock database structure
 const initialDataSources: DataSource[] = [
@@ -119,6 +220,17 @@ const SampleDetailPage = () => {
                     Connect Database
                   </Button>
                 </Link>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    localStorage.removeItem('isAuthenticated');
+                    window.location.href = '/auth/signin';
+                  }}
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer"
+                >
+                  Sign Out
+                </Button>
               </div>
             </header>
             {/* Data Sources Indicator */}

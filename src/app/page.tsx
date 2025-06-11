@@ -82,7 +82,7 @@ interface Message {
   data?: any;
 }
 
-export const dummyTableData = [
+const dummyTableData = [
   {
     id: 1,
     name: 'John Doe',
@@ -175,7 +175,7 @@ export const dummyTableData = [
   },
 ];
 
-export const dummyChartData = [
+const dummyChartData = [
   { name: 'Jan', revenue: 4000, users: 240 },
   { name: 'Feb', revenue: 3000, users: 139 },
   { name: 'Mar', revenue: 2000, users: 980 },
@@ -369,6 +369,17 @@ export default function Home() {
                     Connect Database
                   </Button>
                 </Link>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    localStorage.removeItem('isAuthenticated');
+                    window.location.href = '/auth/signin';
+                  }}
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer"
+                >
+                  Sign Out
+                </Button>
               </div>
             </header>
             {/* Data Sources Indicator */}
